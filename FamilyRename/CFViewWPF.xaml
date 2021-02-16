@@ -1,0 +1,35 @@
+﻿<Window x:Class="FamilyRename.CFViewWPF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FamilyRename"
+        mc:Ignorable="d"
+        KeyDown="Window_KeyDown"
+        Title="VV Pro" Height="200" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+       
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Button x:Name="ductVisiable" Grid.Column="1" Grid.Row="1" Width="150" Height="35" FontSize="17" Click="ductVisiable_Click">风管及相关</Button>
+        <Button x:Name="pipVisiable" Grid.Column="2" Grid.Row="1" Width="150" Height="35" FontSize="17" Click="pipVisiable_Click">管道及相关</Button>
+        <Button x:Name="cableVisiable" Grid.Column="1" Grid.Row="2" Width="150" Height="35" FontSize="17" Click="cableVisiable_Click">电缆桥架及配件</Button>
+        <Button x:Name="insulationVisiable" Grid.Column="2" Grid.Row="2" Width="150" Height="35" FontSize="17" Click="insulationVisiable_Click">风管与管道隔热层</Button>
+        <Button x:Name="nethighVisiable" Grid.Column="1" Grid.Row="3" Width="150" Height="35" FontSize="17" Click="nethighVisiable_Click">净高分析视图</Button>
+        <Button x:Name="grVisiable" Grid.Column="2" Grid.Row="3" Width="150" Height="35" FontSize="17" Click="grVisiable_Click">轴网剖面</Button>
+        
+    </Grid>
+</Window>

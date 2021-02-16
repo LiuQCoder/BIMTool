@@ -1,0 +1,12 @@
+C:\Users\liuqin\source\repos\FamilyRename\bin\Release\FamilyRename.dll
+C:\Users\liuqin\source\repos\FamilyRename\bin\Release\FamilyRename.pdb
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\CFViewWPF.g.cs
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\RenameWindow.g.cs
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename_MarkupCompile.cache
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename_MarkupCompile.lref
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\CFViewWPF.baml
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\RenameWindow.baml
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.g.resources
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.csproj.CoreCompileInputs.cache
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.dll
+C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.pdb

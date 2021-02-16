@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RibbonCreation</Name>
+    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
+    <ClientId>a6bd94f1-26da-4ace-81f2-a3d5e5951f9c</ClientId>
+    <FullClassName>FamilyRename.RibbonCreation</FullClassName>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
+    <ClientId>657a74a0-1b01-4100-aa26-d884ba2a33e8</ClientId>
+    <FullClassName>FamilyRename.CategoryFilterView</FullClassName>
+    <Text>CategoryFilterView</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
+    <ClientId>14665f51-9de7-455b-a39b-e727bdef911e</ClientId>
+    <FullClassName>FamilyRename.CreateViewSection</FullClassName>
+    <Text>CreateViewSection</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
+    <ClientId>43475680-c304-4d55-88b1-fd233608fb63</ClientId>
+    <FullClassName>FamilyRename.fnMain</FullClassName>
+    <Text>fnMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
