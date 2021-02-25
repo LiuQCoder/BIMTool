@@ -79,7 +79,7 @@ namespace FamilyRename
                             actView.UnhideElements(sectionBoxIds);
                             foreach (Category item in grseCategoryList)
                             {
-                                item.set_Visible(actView, false);
+                                item.set_Visible(actView, true);
                             }
                         }
                         else
@@ -88,11 +88,11 @@ namespace FamilyRename
                             actView.HideElements(sectionBoxIds);
                             foreach (Category item in grseCategoryList)
                             {
-                                item.set_Visible(actView, true) ;
+                                item.set_Visible(actView, false) ;
                             }
                         }
 
-                        VisiAbleSet(actView, grseCategoryList);
+                        
 
                         break;
 

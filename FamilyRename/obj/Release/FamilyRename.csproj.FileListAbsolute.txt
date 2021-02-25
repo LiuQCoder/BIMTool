@@ -10,3 +10,14 @@ C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.g.resources
 C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.csproj.CoreCompileInputs.cache
 C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.dll
 C:\Users\liuqin\source\repos\FamilyRename\obj\Release\FamilyRename.pdb
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\bin\Release\FamilyRename.dll
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\bin\Release\FamilyRename.pdb
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\CFViewWPF.g.cs
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\RenameWindow.g.cs
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename_MarkupCompile.cache
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename_MarkupCompile.lref
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\CFViewWPF.baml
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\RenameWindow.baml
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.g.resources
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.dll
+F:\C#\GIT-BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.pdb
