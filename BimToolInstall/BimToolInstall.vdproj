@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1B53DC96560B4AFF9710A46AE194E91B"
+        "MsmKey" = "8:_1253937B8F6B4A7CB8E8DC4A0FC1ECE5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2C01B80860384B9EBD228E83D7F70530"
+        "MsmKey" = "8:_2A7D8D9D7F68471EB47A7ECA173CAE58"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,26 +33,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D0FAD6DF1E2B4FFDB16F2DE5AE98C654"
+        "MsmKey" = "8:_8373E4F26DAC4E4AB44616DB6FE04D08"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D11D9DE2FD8A4D4BA1B3D063D32B9A4E"
+        "MsmKey" = "8:_AD2C1322B191405FB92E7EB6B0EB0CDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FF1711DEC90D443F8DF555DC81D55EDC"
+        "MsmKey" = "8:_B4166E73BE5E499F8AC39A0020293A5B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2C01B80860384B9EBD228E83D7F70530"
+        "OwnerKey" = "8:_8373E4F26DAC4E4AB44616DB6FE04D08"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -80,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -142,12 +150,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B53DC96560B4AFF9710A46AE194E91B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1253937B8F6B4A7CB8E8DC4A0FC1ECE5"
             {
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\BIMToolLq\\icon\\csv.png"
-            "TargetName" = "8:csv.png"
+            "SourcePath" = "8:..\\FamilyRename\\bin\\BIMToolLq\\FamilyRename.pdb"
+            "TargetName" = "8:FamilyRename.pdb"
             "Tag" = "8:"
-            "Folder" = "8:_FB1B441A134941BAACFAB462915B224E"
+            "Folder" = "8:_BECEE3AC3EA047589A6256BBFEB353B8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -162,23 +170,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2C01B80860384B9EBD228E83D7F70530"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2A7D8D9D7F68471EB47A7ECA173CAE58"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FamilyRename, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2C01B80860384B9EBD228E83D7F70530"
-                    {
-                    "Name" = "8:FamilyRename.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\BIMToolLq\\FamilyRename.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\FamilyRename\\bin\\BIMToolLq\\icon\\newname.png"
+            "TargetName" = "8:newname.png"
             "Tag" = "8:"
-            "Folder" = "8:_16D27CF7FCB14632BBDC4866DB2DFD93"
+            "Folder" = "8:_5A701F08690146BCAAB82170FADA6317"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -195,7 +192,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E4D0483E1C84AA790BFEB7F7486C15A"
             {
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\FamilyRename.addin"
+            "SourcePath" = "8:..\\FamilyRename\\bin\\FamilyRename.addin"
             "TargetName" = "8:FamilyRename.addin"
             "Tag" = "8:"
             "Folder" = "8:_15E8246DB83144B4A3B1C9969A052909"
@@ -213,12 +210,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D0FAD6DF1E2B4FFDB16F2DE5AE98C654"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8373E4F26DAC4E4AB44616DB6FE04D08"
             {
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\BIMToolLq\\FamilyRename.pdb"
-            "TargetName" = "8:FamilyRename.pdb"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FamilyRename, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8373E4F26DAC4E4AB44616DB6FE04D08"
+                    {
+                    "Name" = "8:FamilyRename.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FamilyRename\\bin\\BIMToolLq\\FamilyRename.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_16D27CF7FCB14632BBDC4866DB2DFD93"
+            "Folder" = "8:_BECEE3AC3EA047589A6256BBFEB353B8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -233,12 +241,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D11D9DE2FD8A4D4BA1B3D063D32B9A4E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AD2C1322B191405FB92E7EB6B0EB0CDC"
             {
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\BIMToolLq\\icon\\newname.png"
-            "TargetName" = "8:newname.png"
+            "SourcePath" = "8:..\\FamilyRename\\bin\\BIMToolLq\\icon\\csv.png"
+            "TargetName" = "8:csv.png"
             "Tag" = "8:"
-            "Folder" = "8:_FB1B441A134941BAACFAB462915B224E"
+            "Folder" = "8:_5A701F08690146BCAAB82170FADA6317"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -253,12 +261,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF1711DEC90D443F8DF555DC81D55EDC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B4166E73BE5E499F8AC39A0020293A5B"
             {
-            "SourcePath" = "8:F:\\C#\\GIT-BimTool\\BIMTool\\FamilyRename\\bin\\BIMToolLq\\icon\\隐藏.png"
+            "SourcePath" = "8:..\\FamilyRename\\bin\\BIMToolLq\\icon\\隐藏.png"
             "TargetName" = "8:隐藏.png"
             "Tag" = "8:"
-            "Folder" = "8:_FB1B441A134941BAACFAB462915B224E"
+            "Folder" = "8:_5A701F08690146BCAAB82170FADA6317"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -281,7 +289,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_15E8246DB83144B4A3B1C9969A052909"
             {
-            "DefaultLocation" = "8:C:\\ProgramData\\Autodesk\\Revit\\Addins"
+            "DefaultLocation" = "8:C:\\ProgramData\\Autodesk\\Revit\\Addins\\2019"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -289,22 +297,22 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_16D27CF7FCB14632BBDC4866DB2DFD93"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BECEE3AC3EA047589A6256BBFEB353B8"
                     {
                     "Name" = "8:BIMToolLq"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_C6D8FCCC8C754CD0AE678587F67FAFD8"
+                    "Property" = "8:_09E60E53C1C2434E8EE3E47B8E326E4C"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_FB1B441A134941BAACFAB462915B224E"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_5A701F08690146BCAAB82170FADA6317"
                             {
                             "Name" = "8:icon"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_6822A3F72042418A9032832FD237C9EC"
+                            "Property" = "8:_E01DBB2103B347738EB1D61258599D7C"
                                 "Folders"
                                 {
                                 }
@@ -351,15 +359,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BimToolInstall"
-        "ProductCode" = "8:{785B7303-4EAE-4FDE-9C03-6580D16F6E3A}"
-        "PackageCode" = "8:{3FE86548-DA56-482E-9E75-0B3CF4340296}"
+        "ProductCode" = "8:{278BD26E-04B7-4022-8413-3501270CE92D}"
+        "PackageCode" = "8:{1B1413DD-29F4-46B3-A032-0D1F54850A04}"
         "UpgradeCode" = "8:{09B8E2B0-5D8C-42A7-8A37-4ECBE768999E}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Default Company Name"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

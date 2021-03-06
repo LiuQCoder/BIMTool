@@ -6,20 +6,45 @@ using System.Text;
 using System.Threading.Tasks;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-
-
+using System.Collections;
 
 namespace FamilyRename
 {
     class CFViewProgram : IExternalEventHandler
     {
         public string buttonName { get; set; }
+
+      
+        private Hashtable m_categoriesWithName; // all categories with its name
+       
+
+        public void VisibilityCtrl(UIDocument document)
+
+        {
+           // 初始化哈希表
+            
+            m_categoriesWithName = new Hashtable();
+
+            // 将类名填入表中
+            foreach (Category category in document.Document.Settings.Categories)
+            {
+                if (category.get_AllowsVisibilityControl(document.Document.ActiveView))
+                {
+                  
+                    m_categoriesWithName.Add(category.Name, category);
+                }
+            }
+        }
+
+
+
         public void Execute(UIApplication app)
         {
 
             var uidoc = app.ActiveUIDocument;
             var doc = uidoc.Document;
             var actView = doc.ActiveView;
+            VisibilityCtrl(uidoc);
 
             Transaction transaction = new Transaction(doc);
             transaction.Start("可见性设置");
@@ -55,44 +80,17 @@ namespace FamilyRename
 
                     case "轴网剖面":
 
-                        List<Autodesk.Revit.DB.Category> grseCategoryList = new List<Category> { Category.GetCategory(doc, BuiltInCategory.OST_Grids), Category.GetCategory(doc, BuiltInCategory.OST_Elev) };
-
-                        FilteredElementCollector elemCollector = new FilteredElementCollector(doc);
-                        elemCollector.OfCategory(BuiltInCategory.OST_Viewers);
-                        Element sectionBox = null;
-                        List<ElementId> sectionBoxIds = new List<ElementId>();
-                        //找到当前视图中可以隐藏的剖面框
-                        foreach (Element e in elemCollector)
-                        {
-                            if (e.CanBeHidden(actView))
-                            {
-                                sectionBox = e;
-                                sectionBoxIds.Add(sectionBox.Id);
-                                continue;
-                            }
-                        }
-
-                        //判断当前视图中剖面框是否被隐藏
-                        if (sectionBox.IsHidden(actView))
-                        {
-                            //取消隐藏
-                            actView.UnhideElements(sectionBoxIds);
-                            foreach (Category item in grseCategoryList)
-                            {
-                                item.set_Visible(actView, true);
-                            }
-                        }
-                        else
-                        {
-                            //隐藏
-                            actView.HideElements(sectionBoxIds);
-                            foreach (Category item in grseCategoryList)
-                            {
-                                item.set_Visible(actView, false) ;
-                            }
-                        }
-
                         
+
+                        var cat1 = m_categoriesWithName["轴网"] as Category;
+                        var cat2 = m_categoriesWithName["剖面"] as Category;
+                        List<Autodesk.Revit.DB.Category> grseCategoryList = new List<Category> {cat1,cat2};
+
+                        VisiAbleSet(actView,grseCategoryList);
+
+
+                       
+
 
                         break;
 
@@ -128,6 +126,7 @@ namespace FamilyRename
             foreach (var item in categoryList)
             {
                 boolList.Add(item.get_Visible(actView));
+               
 
             }
 
@@ -135,7 +134,9 @@ namespace FamilyRename
             {
                 foreach (Category item in categoryList)
                 {
-                    item.set_Visible(actView, true);
+
+                    actView.SetCategoryHidden(item.Id, false);
+                    // 另一种可见性设置方法cat.set_Visible(m_document.ActiveView, visible);
                 }
 
             }
@@ -143,7 +144,7 @@ namespace FamilyRename
             {
                 foreach (Category item in categoryList)
                 {
-                    item.set_Visible(actView, true);
+                    actView.SetCategoryHidden(item.Id, false);
                 }
 
             }
@@ -151,7 +152,7 @@ namespace FamilyRename
             {
                 foreach (Category item in categoryList)
                 {
-                    item.set_Visible(actView, false);
+                    actView.SetCategoryHidden(item.Id, true);
                 }
             }
 
