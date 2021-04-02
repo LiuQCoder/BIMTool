@@ -50,7 +50,7 @@ namespace FamilyRename
                 sectionTran.Start("设置sectionBox");
                 sectionBox = new BoundingBoxXYZ();
                 sectionBox.Enabled = true;
-                //设置范围框的大小，有两个对角点来生成范围框,设置为3m*3m*3m
+                //设置范围框的大小，有两个对角点来生成范围框,设置为3m*3m
                 XYZ maxPoint = new XYZ(length, length, 0);
 
                 XYZ minPoint = new XYZ(-length, -length, -zHight);
@@ -103,8 +103,12 @@ namespace FamilyRename
                     message = "无法创建此剖面";
                     return Autodesk.Revit.UI.Result.Failed;
                 }
+                else
+                {
+                    var viewScale = uidoc.ActiveView.LookupParameter("比例值 1:").AsInteger();
+                    var sectScale = section1.LookupParameter("当比例粗略度超过下列值时隐藏").Set(viewScale);
 
-
+                }
                 transaction1.Commit();
                 return Result.Succeeded;
             }

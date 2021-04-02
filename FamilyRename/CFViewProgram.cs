@@ -15,7 +15,7 @@ namespace FamilyRename
         public string buttonName { get; set; }
 
       
-        private Hashtable m_categoriesWithName; // all categories with its name
+        private Hashtable m_categoriesWithName; // 作为获得所有的Category及其名称的哈希表
        
 
         public void VisibilityCtrl(UIDocument document)
@@ -109,7 +109,7 @@ namespace FamilyRename
             catch (Exception e)
             {
 
-                TaskDialog.Show("错误", "当前视图已添加视图样板或其他 \n无法修改可见性 \n" + e.Message.ToString());
+                TaskDialog.Show("错误", "当前视图已添加视图样板或其他错误 \n无法修改当前视图可见性 \n" + e.Message.ToString());
             }
 
 
