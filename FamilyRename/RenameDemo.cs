@@ -22,7 +22,7 @@ namespace FamilyRename
             {
                 //选择一个族实例
                 var iselectionFilter = new myiSelectionFilter();
-                Reference pickedElement = uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element, iselectionFilter);
+                Reference pickedElement = uidoc.Selection.PickObject(ObjectType.Element, iselectionFilter);
                 FamilyInstance pickFamilyInstance = doc.GetElement(pickedElement.ElementId) as FamilyInstance;
                 var pickFamilySymbol = pickFamilyInstance.Symbol;
                 var pickFamily = pickFamilySymbol.Family;

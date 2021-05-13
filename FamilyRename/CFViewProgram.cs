@@ -14,15 +14,14 @@ namespace FamilyRename
     {
         public string buttonName { get; set; }
 
-      
         private Hashtable m_categoriesWithName; // 作为获得所有的Category及其名称的哈希表
-       
+
 
         public void VisibilityCtrl(UIDocument document)
 
         {
-           // 初始化哈希表
-            
+            // 初始化哈希表
+
             m_categoriesWithName = new Hashtable();
 
             // 将类名填入表中
@@ -30,11 +29,13 @@ namespace FamilyRename
             {
                 if (category.get_AllowsVisibilityControl(document.Document.ActiveView))
                 {
-                  
+
                     m_categoriesWithName.Add(category.Name, category);
                 }
             }
         }
+
+
 
 
 
