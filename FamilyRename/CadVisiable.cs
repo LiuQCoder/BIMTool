@@ -11,105 +11,91 @@ using System.Threading.Tasks;
 
 namespace FamilyRename
 {
-    [Transaction(TransactionMode.Manual)]
-    class CadVisiable : IExternalCommand
 
+    class CadVisiable : IExternalEventHandler
     {
-        private Hashtable m_categoriesWithName; // 作为获得所有的Category及其名称的哈希表
+
+        public string ButtonName { get; set; }
 
 
-        public void CategoryHash(UIDocument uidoc)
 
+        public void Execute(UIApplication app)
         {
-            // 初始化哈希表
 
-            m_categoriesWithName = new Hashtable();
-
-            // 将类名填入表中
-            foreach (Category category in uidoc.Document.Settings.Categories)
-            {
-                if (category.get_AllowsVisibilityControl(uidoc.Document.ActiveView))
-                {
-
-                    m_categoriesWithName.Add(category.Name, category);
-                }
-            }
-        }
-
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {
-            var uidoc = commandData.Application.ActiveUIDocument;
+            var uidoc = app.ActiveUIDocument;
             var doc = uidoc.Document;
             var seleCad = uidoc.Selection;
-            //选择CAD图层
-            var refSeleCad = seleCad.PickObjects(ObjectType.PointOnElement,"选择CAD");
             //初始化一个已用列表，用来存放筛选出的CAD图层引用
             List<Autodesk.Revit.DB.Reference> refCadList = new List<Reference> { };
             try
             {
-                foreach (var item in refSeleCad)
+                switch (ButtonName)
                 {
-                    if (item.GetType().Name == "Reference")
-                    {
-                        refCadList.Add(item);
-                    }
-                }
-                if (refCadList != null)
-                {
-                    foreach (var item in refCadList)
-                    {
-                        var seleElement = doc.GetElement(item);
-                        var geomobj = seleElement.GetGeometryObjectFromReference(item);
 
-
-                        CategoryHash(uidoc);
-                        Category cadCategory = null;
-                        //获取选择CAD图层的Category
-                        if (geomobj.GraphicsStyleId != ElementId.InvalidElementId)
+                    case "关闭选定图层":
+                        //选择CAD图层
+                        var refSeleCad = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD");
+                        foreach (var item in refSeleCad)
                         {
-                            var gs = doc.GetElement(geomobj.GraphicsStyleId) as GraphicsStyle;
-                            if (gs != null)
-
+                            if (item.GetType().Name == "Reference")
                             {
-                                cadCategory = gs.GraphicsStyleCategory;
+                                refCadList.Add(item);
                             }
-
                         }
-
-                        Transaction transaction = new Transaction(doc, "隐藏CAD图层");
-                        transaction.Start();
-                        if (cadCategory != null)
+                        if (refCadList != null)
                         {
+                            foreach (var item in refCadList)
+                            {
+                                var seleElement = doc.GetElement(item);
+                                var geomobj = seleElement.GetGeometryObjectFromReference(item);
+                                Category cadCategory = null;
+                                //获取选择CAD图层的Category
+                                if (geomobj.GraphicsStyleId != ElementId.InvalidElementId)
+                                {
+                                    var gs = doc.GetElement(geomobj.GraphicsStyleId) as GraphicsStyle;
+                                    if (gs != null)
+                                    {
+                                        cadCategory = gs.GraphicsStyleCategory;
+                                    }
 
-                            cadCategory.set_Visible(doc.ActiveView, false);
-
+                                }
+                                //开启事务 隐藏图层
+                                Transaction transaction = new Transaction(doc, "隐藏CAD图层");
+                                transaction.Start();
+                                if (cadCategory != null)
+                                {
+                                    cadCategory.set_Visible(doc.ActiveView, false);
+                                }
+                                transaction.Commit();
+                            }
                         }
-                        transaction.Commit();
+                        else
+                        {
+                            var nullException = new ArgumentNullException("refCadList");
+                            throw nullException;
+                        }
+                        break;
 
-                        
-                    }
+                    case "保留选定图层":
+                        break;
+                    case "图层全开":
+                        break;
                 }
-                
-
-               
-                
-                return Result.Succeeded;
             }
-            catch (Exception)
-            {
-
-                throw;
+            //用户取消操作异常
+            catch (OperationCanceledException)
+            {  
+                
             }
+            
 
-           
-
-       
-        
-        
         }
 
-       
 
 
+        public string GetName()
+        {
+            return "CadVisiable";
+        }
     }
 }

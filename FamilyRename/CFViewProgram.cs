@@ -45,6 +45,7 @@ namespace FamilyRename
             var uidoc = app.ActiveUIDocument;
             var doc = uidoc.Document;
             var actView = doc.ActiveView;
+            //获取当前项目的所有Category
             VisibilityCtrl(uidoc);
 
             Transaction transaction = new Transaction(doc);
@@ -116,6 +117,8 @@ namespace FamilyRename
 
 
         }
+        //IExternalEventHandler接口返回值
+
         public string GetName()
         {
             return "CFViewProgram";

@@ -35,6 +35,7 @@ namespace FamilyRename
                 transaction.Commit();
                 TaskDialog.Show("修改结果", "原名称是：" + oldFamliy + '\n' + "修改后的名称为：" + newFaName);
             }
+            //取消选择异常
             catch (Autodesk.Revit.Exceptions.OperationCanceledException)
             {
 

@@ -46,3 +46,4 @@ Z:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.cspro
 Z:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.dll
 Z:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.pdb
 Z:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\FamilyRename.csprojAssemblyReference.cache
+Z:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\CadVisiableWPF.g.cs

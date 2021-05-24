@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CadVisiable.cs" />
+    <Compile Include="CadVisiableMain.cs" />
+    <Compile Include="CadVisiableWPF.xaml.cs">
+      <DependentUpon>CadVisiableWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CFViewProgram.cs" />
     <Compile Include="CFViewWPF.xaml.cs">
       <DependentUpon>CFViewWPF.xaml</DependentUpon>
@@ -72,6 +76,10 @@
     <Compile Include="RibbonCreation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CadVisiableWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CFViewWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
