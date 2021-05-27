@@ -76,7 +76,7 @@ namespace FamilyRename
                         break;
 
                     case "保留选定图层":
-                        //初始化一个已用列表，用来存放选择的CAD图层
+                        //初始化一个已用列表，用来存放选择的CAD图层 tty
                         List<Category> SelCadCategories = new List<Category> { };
 
                         //选择需要保留的CAD图层
