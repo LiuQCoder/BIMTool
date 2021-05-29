@@ -34,7 +34,7 @@ namespace FamilyRename
 
                     case "关闭选定图层":
                         //选择CAD图层
-                        var refSeleCad = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD");
+                        var refSeleCad = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD图层");
                         foreach (var item in refSeleCad)
                         {
                             if (item.GetType().Name == "Reference")
@@ -87,7 +87,7 @@ namespace FamilyRename
                         List<ElementId> SelCadCategories = new List<ElementId> { };
 
                         //选择需要保留的CAD图层
-                        var refSeleCad1 = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD");
+                        var refSeleCad1 = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD图层");
                         foreach (var item in refSeleCad1)
                         {
                             if (item.GetType().Name == "Reference")
@@ -130,7 +130,7 @@ namespace FamilyRename
                             LayerList.Remove(item);
                         }
 
-                       
+
                         //关闭未选中图层
                         foreach (var item in LayerList)
                         {
@@ -139,6 +139,43 @@ namespace FamilyRename
                         transaction2.Commit();
                         break;
                     case "图层全开":
+                        //选择CAD图层
+                        var refSeleCadOn = seleCad.PickObject(ObjectType.PointOnElement, "选择CAD图层");
+                        var seleElementOn = doc.GetElement(refSeleCadOn);
+                        var geomobjOn = seleElementOn.GetGeometryObjectFromReference(refSeleCadOn);
+                        //获取选择的CAD Category
+                        Category cadCategoryOn = null;
+                        if (geomobjOn.GraphicsStyleId != ElementId.InvalidElementId)
+                        {
+                            var gs = doc.GetElement(geomobjOn.GraphicsStyleId) as GraphicsStyle;
+                            if (gs != null)
+                            {
+                                cadCategoryOn = gs.GraphicsStyleCategory;
+
+                            }
+                        }
+                        //获取所有CAD图层
+
+                        Category CadlinkCategoryOn = cadCategoryOn.Parent;
+                        var CadAllLayerOn = CadlinkCategoryOn.SubCategories;
+
+
+
+                        //开启事务 隐藏图层
+                        Transaction transaction3 = new Transaction(doc, "图层全开");
+                        transaction3.Start();
+
+                        //打开图层
+                        foreach (var item in CadAllLayerOn)
+                        {
+                            Category cadlayer = item as Category;
+                            cadlayer.set_Visible(doc.ActiveView, true);
+                        }
+
+
+                        transaction3.Commit();
+
+
                         break;
                 }
             }
@@ -148,7 +185,7 @@ namespace FamilyRename
 
             }
             //选择了非CAD图层异常
-            catch (NullReferenceException )
+            catch (NullReferenceException)
             {
 
                 TaskDialog.Show("警告", "所选对象包含非CAD图层对象\n请重新选择");

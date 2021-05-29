@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyRename"
         mc:Ignorable="d"
-        Title="CAD图层设置" Height="120" Width="200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="CAD图层设置" Height="180" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"></RowDefinition>
@@ -20,9 +20,9 @@
             <ColumnDefinition   Width="1*"></ColumnDefinition>
             <ColumnDefinition   Width="0.1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="CADcatPartOFF" Grid.Column="1" Grid.Row="1" Width="75" Height="30" FontSize="11" Click="CADcatPartOFF_Click">关闭选定图层</Button>
-        <Button x:Name="CADcatPartON" Grid.Column="2" Grid.Row="1" Width="75" Height="30" FontSize="11" Click="CADcatPartON_Click">保留选定图层</Button>
-        <Button x:Name="CADcatAllOn" Grid.Column="1" Grid.Row="2" Width="75" Height="30" FontSize="11" Click="CADcatAllOn_Click">图层全开</Button>
+        <Button x:Name="CADcatPartOFF" Grid.Column="1" Grid.Row="1" Width="110" Height="40" FontSize="16" Click="CADcatPartOFF_Click">关闭选定图层</Button>
+        <Button x:Name="CADcatPartON" Grid.Column="2" Grid.Row="1" Width="110" Height="40" FontSize="16" Click="CADcatPartON_Click">保留选定图层</Button>
+        <Button x:Name="CADcatAllOn" Grid.Column="1" Grid.Row="2" Width="110" Height="40" FontSize="16" Click="CADcatAllOn_Click">图层全开</Button>
 
     </Grid>
 </Window>
