@@ -42,6 +42,9 @@ namespace FamilyRename
                                 refCadList.Add(item);
                             }
                         }
+                        //开启事务 隐藏图层
+                        Transaction transaction1 = new Transaction(doc, "隐藏CAD图层");
+                        transaction1.Start();
                         if (refCadList != null)
                         {
                             foreach (var item in refCadList)
@@ -59,15 +62,14 @@ namespace FamilyRename
                                     }
 
                                 }
-                                //开启事务 隐藏图层
-                                Transaction transaction1 = new Transaction(doc, "隐藏CAD图层");
-                                transaction1.Start();
+
                                 if (cadCategory != null)
                                 {
                                     cadCategory.set_Visible(doc.ActiveView, false);
                                 }
-                                transaction1.Commit();
+
                             }
+                            transaction1.Commit();
                         }
                         else
                         {
@@ -76,8 +78,13 @@ namespace FamilyRename
                         break;
 
                     case "保留选定图层":
+                        //1.通过subcategories获取所有图层
+                        //2.移除已选择的图层
+                        //3.关闭图层
+                        //无法直接list.remove来移除选择Category ，使用ElementId的方式进行移除
+
                         //初始化一个已用列表，用来存放选择的CAD图层 tty
-                        List<Category> SelCadCategories = new List<Category> { };
+                        List<ElementId> SelCadCategories = new List<ElementId> { };
 
                         //选择需要保留的CAD图层
                         var refSeleCad1 = seleCad.PickObjects(ObjectType.PointOnElement, "选择CAD");
@@ -96,38 +103,38 @@ namespace FamilyRename
                                     if (gs != null)
                                     {
                                         cadCategory = gs.GraphicsStyleCategory;
-                                        SelCadCategories.Add(cadCategory);
+                                        SelCadCategories.Add(cadCategory.Id);
                                     }
                                 }
                             }
                         }
-                        //获取图层所属的图层
-                        Category CADlinkCategory = SelCadCategories.FirstOrDefault().Parent;
+                        //通过选择的第一个元素，获取图层所属的图层
+                        Category CADlinkCategory = Category.GetCategory(doc, SelCadCategories.FirstOrDefault()).Parent;
                         //获取链接CAD的所有图层
                         var CadAllLayer = CADlinkCategory.SubCategories;
-                        //初始化一个已用列表，用来存放CAD链接下的所有图层
-                        List<Category> LayerList = new List<Category> { };
+                        //初始化一个已用列表，用来存放CAD链接下的所有图层ID
+                        List<ElementId> LayerList = new List<ElementId> { };
                         //开启事务 隐藏图层
                         Transaction transaction2 = new Transaction(doc, "保留选定CAD图层");
                         transaction2.Start();
-                        foreach (var layer in CadAllLayer)
+
+                        //获取所有图层ID
+                        foreach (var item in CadAllLayer)
                         {
-                            Category layerCategory = layer as Category;
-                            if (SelCadCategories.Contains(layerCategory))
-                            {
+                            Category cadlayer = item as Category;
+                            LayerList.Add(cadlayer.Id);
+                        }
+                        //移除选择图层的ID
+                        foreach (var item in SelCadCategories)
+                        {
+                            LayerList.Remove(item);
+                        }
 
-                            }
-                            else
-                            {
-                                
-                                if (layerCategory != null)
-                                {
-                                   layerCategory.set_Visible(doc.ActiveView, false);
-                                }
-                               
-                            }
-                            
-
+                       
+                        //关闭未选中图层
+                        foreach (var item in LayerList)
+                        {
+                            Category.GetCategory(doc, item).set_Visible(doc.ActiveView, false);
                         }
                         transaction2.Commit();
                         break;
@@ -136,14 +143,21 @@ namespace FamilyRename
                 }
             }
             //用户取消操作异常
-            catch (OperationCanceledException)
+            catch (Autodesk.Revit.Exceptions.OperationCanceledException)
             {
 
             }
+            //选择了非CAD图层异常
+            catch (NullReferenceException )
+            {
+
+                TaskDialog.Show("警告", "所选对象包含非CAD图层对象\n请重新选择");
+            }
+
             //捕获其他异常
             catch (Exception e)
             {
-                TaskDialog.Show("错误", e.Message.ToString());
+                TaskDialog.Show("错误", e.ToString());
             }
 
         }

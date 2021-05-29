@@ -2,6 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Project</StartAction>
-    <StartProgram>C:\Program Files\Autodesk\Revit 2019\Revit.exe</StartProgram>
+    <StartProgram>
+    </StartProgram>
   </PropertyGroup>
 </Project>
