@@ -21,7 +21,7 @@ namespace FamilyRename
             mainUI.Owner = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
             //任务栏是否显示窗口
             mainWin.ShowInTaskbar = false;
-            mainWin.ShowDialog();
+            mainWin.Show();
             return Result.Succeeded;
            
         }

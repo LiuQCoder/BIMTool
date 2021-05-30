@@ -2,25 +2,35 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>RibbonCreation</Name>
-    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
-    <ClientId>a6bd94f1-26da-4ace-81f2-a3d5e5951f9c</ClientId>
+    <Assembly>FamilyRename.dll</Assembly>
+    <ClientId>1d2546ec-22d3-4315-a0d9-fcbed4f20418</ClientId>
     <FullClassName>FamilyRename.RibbonCreation</FullClassName>
     <VendorId>ADSK</VendorId>
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
-    <ClientId>657a74a0-1b01-4100-aa26-d884ba2a33e8</ClientId>
-    <FullClassName>FamilyRename.CategoryFilterView</FullClassName>
-    <Text>CategoryFilterView</Text>
+    <Assembly>FamilyRename.dll</Assembly>
+    <ClientId>422a5f4c-75a1-4ba5-a052-aa91c9a9234c</ClientId>
+    <FullClassName>FamilyRename.CadVisiableMain</FullClassName>
+    <Text>CadVisiableMain</Text>
     <Description>""</Description>
     <VisibilityMode>AlwaysVisible</VisibilityMode>
     <VendorId>ADSK</VendorId>
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
-    <ClientId>14665f51-9de7-455b-a39b-e727bdef911e</ClientId>
+    <Assembly>FamilyRename.dll</Assembly>
+    <ClientId>0bdff0e4-9a19-401e-86e0-48c120f7c65f</ClientId>
+    <FullClassName>FamilyRename.CFVMain</FullClassName>
+    <Text>CFVMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>FamilyRename.dll</Assembly>
+    <ClientId>94a5abbf-8607-4377-9b4b-93ee2c2367e9</ClientId>
     <FullClassName>FamilyRename.CreateViewSection</FullClassName>
     <Text>CreateViewSection</Text>
     <Description>""</Description>
@@ -29,8 +39,8 @@
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>C:\Users\liuqin\source\repos\FamilyRename\bin\Debug\FamilyRename.dll</Assembly>
-    <ClientId>43475680-c304-4d55-88b1-fd233608fb63</ClientId>
+    <Assembly>FamilyRename.dll</Assembly>
+    <ClientId>fd512e33-e7b8-4405-9809-28a9fcf338df</ClientId>
     <FullClassName>FamilyRename.fnMain</FullClassName>
     <Text>fnMain</Text>
     <Description>""</Description>

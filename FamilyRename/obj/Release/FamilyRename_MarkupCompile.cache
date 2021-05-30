@@ -4,7 +4,7 @@
 library
 C#
 .cs
-U:\工作\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Release\
+D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\
 FamilyRename
 none
 false
@@ -12,9 +12,9 @@ TRACE
 
 3-1761101118
 
-131397252425
-15932240940
+12-1820136039
+18-926686076
 CadVisiableWPF.xaml;CFViewWPF.xaml;RenameWindow.xaml;
 
-True
+False
 

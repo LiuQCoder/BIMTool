@@ -2,15 +2,25 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>RibbonCreation</Name>
-    <Assembly>BIMToolLq/FamilyRename.dll</Assembly>
-    <ClientId>3e312f42-c3c4-4897-bd93-dbab84082721</ClientId>
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>ec46bb34-3af5-4c7c-b99e-b66a23f24c93</ClientId>
     <FullClassName>FamilyRename.RibbonCreation</FullClassName>
     <VendorId>ADSK</VendorId>
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>BIMToolLq/FamilyRename.dll</Assembly>
-    <ClientId>1387a10c-492b-4252-9262-5a1c70bf6f30</ClientId>
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>58b5b65d-81f6-41a9-ac8a-1fd4e1d87d96</ClientId>
+    <FullClassName>FamilyRename.CadVisiableMain</FullClassName>
+    <Text>CadVisiableMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>2f5ac458-2f57-4f99-baaf-af664fcd7b5b</ClientId>
     <FullClassName>FamilyRename.CFVMain</FullClassName>
     <Text>CFVMain</Text>
     <Description>""</Description>
@@ -19,8 +29,8 @@
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>BIMToolLq/FamilyRename.dll</Assembly>
-    <ClientId>5d946384-96dc-4fa8-8bda-00ed5fa8f990</ClientId>
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>d4d8fa0e-66e2-456a-94b1-18212c45393e</ClientId>
     <FullClassName>FamilyRename.CreateViewSection</FullClassName>
     <Text>CreateViewSection</Text>
     <Description>""</Description>
@@ -29,8 +39,8 @@
     <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Assembly>BIMToolLq/FamilyRename.dll</Assembly>
-    <ClientId>fc78b77a-491a-4b3d-8f8d-ee2f35cd1929</ClientId>
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>5e203bbc-ad00-46f1-bdb7-dfe8770b830c</ClientId>
     <FullClassName>FamilyRename.fnMain</FullClassName>
     <Text>fnMain</Text>
     <Description>""</Description>

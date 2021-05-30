@@ -38,26 +38,38 @@ namespace FamilyRename
             CadVisiableCommand = new CadVisiable();
             CadEvent = ExternalEvent.Create(CadVisiableCommand);
             //注册KeyDown事件，捕获Esc来关闭WPF
-           this.KeyDown += Window_KeyDown;
+            this.KeyDown += Window_KeyDown;
             //运行钩子
-          
+              
+            
             Subscribe();
             //关闭窗体后 注销钩子
-            Unsubscribe();
+            this.Closing += CadVisiableWPF_Closing1;
             //窗体激活事件
-            //this.Activated += CadVisiableWPF_Activated;
-
+            this.Activated += CadVisiableWPF_Activated;
+            //窗体后台事件
+            this.Deactivated += CadVisiableWPF_Deactivated;
         }
-        //窗体激活时所有按键可用
-        //private void CadVisiableWPF_Activated(object sender, EventArgs e)
-        //{
-        //    CADcatPartOFF.IsEnabled = true;
-        //    CADcatPartOFF.Opacity = 1;
-        //    CADcatPartON.IsEnabled = true;
-        //    CADcatPartON.Opacity = 1;
-        //    CADcatAllOn.IsEnabled = true;
-        //    CADcatAllOn.Opacity = 1;
-        //}
+        //窗体激活时，检查外部事件进行状态来改变按钮状态
+        private void CadVisiableWPF_Deactivated(object sender, EventArgs e)
+        {
+            BunttonISCon();
+        }
+        //窗体后台运行时，检查外部事件进行状态来改变按钮状态
+
+        private void CadVisiableWPF_Activated(object sender, EventArgs e)
+        {
+            BunttonISCon();
+        }
+
+        //关闭窗口时 卸载钩子
+        private void CadVisiableWPF_Closing1(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Unsubscribe();
+            
+        }
+
+        
 
 
         //安装钩子
@@ -124,34 +136,73 @@ namespace FamilyRename
             WindowsHelper.SendMessage(complete, 245, 0, 0);
         }
 
+        //获取外部程序运行状态
+        private void BunttonISCon()
+        {
+            switch (CadVisiableCommand.ButtonIS)
+            {
+                case "on":
+                    CADcatPartOFF.IsEnabled = true;
+                    CADcatPartOFF.Opacity = 1;
+                    CADcatPartON.IsEnabled = true;
+                    CADcatPartON.Opacity = 1;
+                    CADcatAllOn.IsEnabled = true;
+                    CADcatAllOn.Opacity = 1;
 
+                    break;
+                case "23off":
+                    CADcatPartOFF.IsEnabled = true;
+                    CADcatPartOFF.Opacity = 1;
+                    CADcatPartON.IsEnabled = false;
+                    CADcatPartON.Opacity = 0.5;
+                    CADcatAllOn.IsEnabled = false;
+                    CADcatAllOn.Opacity = 0.5;
+
+                    break;
+                case "13off":
+                    CADcatPartOFF.IsEnabled = false;
+                    CADcatPartOFF.Opacity = 0.5;
+                    CADcatPartON.IsEnabled = true;
+                    CADcatPartON.Opacity = 1;
+                    CADcatAllOn.IsEnabled = false;
+                    CADcatAllOn.Opacity = 0.5;
+
+                    break;
+                case "12off":
+                    CADcatPartOFF.IsEnabled = false;
+                    CADcatPartOFF.Opacity = 0.5;
+                    CADcatPartON.IsEnabled = false;
+                    CADcatPartON.Opacity = 0.5;
+                    CADcatAllOn.IsEnabled = true;
+                    CADcatAllOn.Opacity = 1;
+
+                    break;
+ 
+            }
+        }
         private void CADcatPartOFF_Click(object sender, RoutedEventArgs e)
         {
-           
+
             CadVisiableCommand.ButtonName = CADcatPartOFF.Content.ToString();
             CadEvent.Raise();
-            this.Close();
-
+ 
         }
-
+       
         private void CADcatPartON_Click(object sender, RoutedEventArgs e)
         {
-            
+
             CadVisiableCommand.ButtonName = CADcatPartON.Content.ToString();
             CadEvent.Raise();
-            this.Close();
-
-
-
-
+          
         }
 
         private void CADcatAllOn_Click(object sender, RoutedEventArgs e)
         {
-            
+
             CadVisiableCommand.ButtonName = CADcatAllOn.Content.ToString();
             CadEvent.Raise();
-            this.Close();
+            
+
         }
 
         //捕获键盘，按下ESC退出
