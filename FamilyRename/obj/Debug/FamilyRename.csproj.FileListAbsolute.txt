@@ -26,6 +26,7 @@ D:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Debug\FamilyRename.dll
 D:\Revit二次开发\BimTool\BIMTool\FamilyRename\obj\Debug\FamilyRename.pdb
 D:\Revit二次开发\BIMTool\FamilyRename\bin\Debug\FamilyRename.dll
 D:\Revit二次开发\BIMTool\FamilyRename\bin\Debug\FamilyRename.pdb
+D:\Revit二次开发\BIMTool\FamilyRename\bin\Debug\Gma.System.MouseKeyHook.dll
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\CadVisiableWPF.g.cs
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\CFViewWPF.g.cs
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\RenameWindow.g.cs
@@ -36,5 +37,6 @@ D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\CFViewWPF.baml
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\RenameWindow.baml
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\FamilyRename.g.resources
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\FamilyRename.csproj.CoreCompileInputs.cache
+D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\FamilyRename.csproj.CopyComplete
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\FamilyRename.dll
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\FamilyRename.pdb

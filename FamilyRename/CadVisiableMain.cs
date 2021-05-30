@@ -12,6 +12,7 @@ namespace FamilyRename
     [Transaction(TransactionMode.Manual)]
     class CadVisiableMain : IExternalCommand
     {
+
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var mainWin = new CadVisiableWPF();
@@ -20,8 +21,9 @@ namespace FamilyRename
             mainUI.Owner = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
             //任务栏是否显示窗口
             mainWin.ShowInTaskbar = false;
-            mainWin.Show();
+            mainWin.ShowDialog();
             return Result.Succeeded;
+           
         }
     }
 

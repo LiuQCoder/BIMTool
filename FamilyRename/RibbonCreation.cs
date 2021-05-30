@@ -68,6 +68,20 @@ namespace FamilyRename
             //将图标添加到panel
             var cfvpushButton = panel.AddItem(CFVButtonData) as PushButton;
 
+            //添加分隔符
+            panel.AddSeparator();
+            var CadVisiableType = new CadVisiableMain().GetType();
+            var CadVisiableLocation = CadVisiableType.Assembly.Location;
+            //获取类全名
+            var CadvisiableFName = CadVisiableType.FullName;
+            //创建按钮
+            var CadVbButtionData = new PushButtonData("CadVisiable", "CAD图层控制", CadVisiableLocation, CadvisiableFName);
+            //创建图标
+            var CadVbImagePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\icon\图层.png";
+            CadVbButtionData.LargeImage = new BitmapImage(new Uri(CadVbImagePath));
+            //将图标添加到Panel
+            var CadVbpushButton = panel.AddItem(CadVbButtionData) as PushButton;
+
 
 
 

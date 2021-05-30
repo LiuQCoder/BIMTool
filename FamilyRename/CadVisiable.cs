@@ -2,12 +2,15 @@
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
+using Gma.System.MouseKeyHook;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FamilyRename
 {
@@ -16,7 +19,6 @@ namespace FamilyRename
     {
 
         public string ButtonName { get; set; }
-
 
 
         public void Execute(UIApplication app)
@@ -137,6 +139,7 @@ namespace FamilyRename
                             Category.GetCategory(doc, item).set_Visible(doc.ActiveView, false);
                         }
                         transaction2.Commit();
+                       
                         break;
                     case "图层全开":
                         //选择CAD图层
