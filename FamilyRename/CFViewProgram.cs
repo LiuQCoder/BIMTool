@@ -80,20 +80,18 @@ namespace FamilyRename
                         break;
 
 
-                    case "轴网剖面":
-
-                        
-
+                    case "轴网":
+                                                
                         var cat1 = m_categoriesWithName["轴网"] as Category;
+                        List<Autodesk.Revit.DB.Category> grCategoryList = new List<Category> {cat1,};
+                        VisiAbleSet(actView,grCategoryList);                                         
+                        break;
+
+                    case "剖面":
+                                                
                         var cat2 = m_categoriesWithName["剖面"] as Category;
-                        List<Autodesk.Revit.DB.Category> grseCategoryList = new List<Category> {cat1,cat2};
-
-                        VisiAbleSet(actView,grseCategoryList);
-
-
-                       
-
-
+                        List<Autodesk.Revit.DB.Category> seCategoryList = new List<Category> { cat2, };
+                        VisiAbleSet(actView, seCategoryList);
                         break;
 
                     case "净高分析视图":

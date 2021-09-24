@@ -110,6 +110,7 @@ namespace FamilyRename
 
                 }
                 transaction1.Commit();
+                uidoc.ActiveView = section1;
                 return Result.Succeeded;
             }
 

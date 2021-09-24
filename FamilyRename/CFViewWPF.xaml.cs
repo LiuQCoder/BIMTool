@@ -80,5 +80,11 @@ namespace FamilyRename
                 this.Close();
               
         }
+
+        private void seVisiable_Click(object sender, RoutedEventArgs e)
+        {
+            CFViewCommand.buttonName = seVisiable.Content.ToString();
+            CFviewEvent.Raise();
+        }
     }
 }
