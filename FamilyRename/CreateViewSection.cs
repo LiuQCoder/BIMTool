@@ -110,7 +110,7 @@ namespace FamilyRename
 
                 }
                 transaction1.Commit();
-                uidoc.ActiveView = section1;
+                // uidoc.ActiveView = section1; 激活视图
                 return Result.Succeeded;
             }
 
