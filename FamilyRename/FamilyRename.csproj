@@ -80,6 +80,9 @@
     <Compile Include="CreateViewSection.cs" />
     <Compile Include="fnMain.cs" />
     <Compile Include="NewFitting.cs" />
+    <Compile Include="NewFittingWPF.xaml.cs">
+      <DependentUpon>NewFittingWPF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenameDemo.cs" />
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CFViewWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewFittingWPF.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
