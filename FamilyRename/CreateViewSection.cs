@@ -15,6 +15,42 @@ namespace FamilyRename
             var uidoc = commandData.Application.ActiveUIDocument;
             var doc = uidoc.Document;
             var selection = uidoc.Selection;
+
+
+            #region 获取viewfamilyID
+            //获取剖面的viewfamilyID
+
+
+
+            List<ViewFamilyType> viewFType = new List<ViewFamilyType> { };
+            var viewFamilyID = new ElementId(-1);
+            var viewFamilyTypeCot = new FilteredElementCollector(doc).OfClass(typeof(ViewFamilyType));
+            foreach (var item in viewFamilyTypeCot)
+            {
+                var viewfamilyType = item as ViewFamilyType;
+                if (viewfamilyType != null && viewfamilyType.ViewFamily == ViewFamily.Section)
+                {
+                    viewFType.Add(viewfamilyType);
+
+                }
+            }
+
+            #endregion
+
+            //创建窗口
+            var cvsWpf = new CreatViewSectionWPF(viewFType);
+            cvsWpf.Left = 400;
+            cvsWpf.Top = 300;
+            cvsWpf.Show();
+            viewFamilyID = cvsWpf.SelectViewType.Id;
+
+
+            //创建剖面
+
+            //CrViewSection(doc, viewFamilyID, boundingbox);
+
+
+
             #region 创建范围框
             //创建sectionBox来存储范围框：BoundingBoxXYZ
             BoundingBoxXYZ sectionBox;
@@ -23,10 +59,11 @@ namespace FamilyRename
             double length = UnitUtils.Convert(3, DisplayUnitType.DUT_METERS, DisplayUnitType.DUT_DECIMAL_FEET);
             double hight = UnitUtils.Convert(3, DisplayUnitType.DUT_METERS, DisplayUnitType.DUT_DECIMAL_FEET);
 
-           
+
 
             try
             {
+             
 
                 //选择一个MEP管线
                 var iselectionFilter = new mepiSelectionFilter();
@@ -63,35 +100,18 @@ namespace FamilyRename
 
                 #region 将范围框转换成模型坐标系
 
-                var transForm = GetpipeTransform(mepPipe,mepPoint1,mepPoint2);
+                var transForm = GetpipeTransform(mepPipe, mepPoint1, mepPoint2);
                 sectionBox.Transform = transForm;
 
 
 
 
                 #endregion
-               
 
 
-                #region 获取viewfamilyID
-                //获取剖面的viewfamilyID
 
                 var transaction1 = new Transaction(doc);
-                transaction1.Start("获取viewfamilyID");
-
-                var viewFamilyID = new ElementId(-1);
-                var viewFamilyTypeCot = new FilteredElementCollector(doc).OfClass(typeof(ViewFamilyType));
-                foreach (var item in viewFamilyTypeCot)
-                {
-                    var viewfamilyType = item as ViewFamilyType;
-                    if (viewfamilyType != null && viewfamilyType.ViewFamily == ViewFamily.Section)
-                    {
-                        viewFamilyID = viewfamilyType.Id;
-                        break;
-                    }
-                }
-
-                #endregion
+                transaction1.Start("创建剖面");
 
                 #region 创建剖面:CreateSection(doc,viewfamilyID,BoundingBox)
                 //创建剖面:CreateSection(doc,viewfamilyID,BoundingBox)
@@ -102,6 +122,7 @@ namespace FamilyRename
                 {
                     message = "无法创建此剖面";
                     return Autodesk.Revit.UI.Result.Failed;
+                    
                 }
                 else
                 {
@@ -118,6 +139,7 @@ namespace FamilyRename
             {
                 return Autodesk.Revit.UI.Result.Failed;
 
+
             }
             catch (Exception e)
             {
@@ -126,42 +148,49 @@ namespace FamilyRename
 
             }
             #endregion
+
+
+        }
+
+        public static void CrViewSection(Document doc, ElementId viewFamilyID, BoundingBoxXYZ boundingbox)
+        {
             
+        }
+
+
+
+
+
+        /// <summary>
+        /// 获取mepcurve的transform
+        /// </summary>
+        /// <param name="mepPipe"></param>
+        /// <returns></returns>
+        public Transform GetpipeTransform(MEPCurve mepPipe, XYZ Point1, XYZ Point2)
+        {
+            Transform transform = null;
+            var locationCurve = mepPipe.Location as LocationCurve;
+            var line = locationCurve.Curve as Line;
+            transform = Transform.Identity;
+
+            ;
+            transform.Origin = Point2;
+
+            var basisZ = FindDirection(Point1, Point2);
+            var basisX = FindRightDirection(basisZ);
+            var basisY = FindUpDirection(basisZ);
+            transform.set_Basis(0, basisX);
+            transform.set_Basis(1, basisY);
+            transform.set_Basis(2, basisZ);
+            return transform;
 
         }
 
 
 
-            /// <summary>
-            /// 获取mepcurve的transform
-            /// </summary>
-            /// <param name="mepPipe"></param>
-            /// <returns></returns>
-            public  Transform GetpipeTransform(MEPCurve mepPipe, XYZ Point1, XYZ Point2)
-            {
-                Transform transform = null;
-                var locationCurve = mepPipe.Location as LocationCurve;
-                var line = locationCurve.Curve as Line;
-                transform = Transform.Identity;
-
-                ;
-                transform.Origin = Point2;
-
-                var basisZ = FindDirection(Point1, Point2);
-                var basisX = FindRightDirection(basisZ);
-                var basisY = FindUpDirection(basisZ);
-                transform.set_Basis(0, basisX);
-                transform.set_Basis(1, basisY);
-                transform.set_Basis(2, basisZ);
-                return transform;
-
-            }
-
-        
-
 
         #region 继承ISelectionFilyter接口，创建选择过滤器
-            //继承ISelectionFilyter接口，创建选择过滤器
+        //继承ISelectionFilyter接口，创建选择过滤器
 
         public class mepiSelectionFilter : ISelectionFilter
         {

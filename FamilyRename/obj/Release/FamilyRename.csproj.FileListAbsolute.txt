@@ -63,3 +63,5 @@ D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\FamilyRename.csproj.CoreCo
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\FamilyRename.csproj.CopyComplete
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\FamilyRename.dll
 D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\FamilyRename.pdb
+D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\CreatViewSectionWPF.g.cs
+D:\Revit二次开发\BIMTool\FamilyRename\obj\Release\CreatViewSectionWPF.baml
