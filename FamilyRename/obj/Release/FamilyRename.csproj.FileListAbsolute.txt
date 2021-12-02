@@ -78,3 +78,5 @@ C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\FamilyRena
 C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\FamilyRename.csproj.CopyComplete
 C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\FamilyRename.dll
 C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\FamilyRename.pdb
+C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\NewFittingWPF.g.cs
+C:\Users\cuad\source\repos\LiuQCoder\BIMTool\FamilyRename\obj\Release\NewFittingWPF.baml
