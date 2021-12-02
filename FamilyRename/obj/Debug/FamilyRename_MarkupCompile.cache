@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\Users\cuad\Source\Repos\LiuQCoder\BIMTool\FamilyRename\obj\Debug\
+D:\Revit二次开发\BIMTool\FamilyRename\obj\Debug\
 FamilyRename
 none
 false
 DEBUG;TRACE
 
-3-1761101118
+4-289229733
 
-12-1820136039
-181339000085
-CadVisiableWPF.xaml;CFViewWPF.xaml;RenameWindow.xaml;
+16-1098538673
+18-926686076
+CadVisiableWPF.xaml;CFViewWPF.xaml;NewFittingWPF.xaml;RenameWindow.xaml;
 
 True
 

@@ -14,6 +14,7 @@ namespace FamilyRename
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
+            
             var sourceSymboolName = "P-给水压力(J2)";
             var newpipeFitting = "111";
             var uidoc = commandData.Application.ActiveUIDocument;
@@ -22,7 +23,10 @@ namespace FamilyRename
             var fittingCollector = new FilteredElementCollector(doc);
             //获取管道配件类型
             var pipeCollector = fittingCollector.OfCategory(BuiltInCategory.OST_PipeFitting).OfClass(typeof(FamilySymbol));
+            var a = new List<string> { "槽式", "梯级", "托盘" };
 
+            var wpf4 = new NewFittingWPF(a);
+            var res = wpf4.ShowDialog();
             var creatpipeTransaction = new Transaction(doc);
             creatpipeTransaction.Start("复制新建管件类型");
             foreach (var item in pipeCollector)
