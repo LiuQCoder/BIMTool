@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>External Tool</Name>
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>658663f3-bc98-453e-b70a-797323c6492f</ClientId>
+    <FullClassName>FamilyRename.RibbonCreation</FullClassName>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>9efde367-92d7-440e-ae01-802f968a96cb</ClientId>
+    <FullClassName>FamilyRename.CadVisiableMain</FullClassName>
+    <Text>CadVisiableMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>4dd2d513-c10c-4667-869f-25e07e8987da</ClientId>
+    <FullClassName>FamilyRename.CFVMain</FullClassName>
+    <Text>CFVMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>19bb8646-a13a-434d-ab29-a4339eb25e03</ClientId>
+    <FullClassName>FamilyRename.CreateViewSection</FullClassName>
+    <Text>CreateViewSection</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>4ab4ee54-f73b-4055-a4e3-f84b7b20592e</ClientId>
+    <FullClassName>FamilyRename.NewFittingMain</FullClassName>
+    <Text>NewFittingMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Assembly>./BIMToolLq/FamilyRename.dll</Assembly>
+    <ClientId>cc5ba606-c5ea-4a87-824e-b457f50b9982</ClientId>
+    <FullClassName>FamilyRename.RenameMain</FullClassName>
+    <Text>RenameMain</Text>
+    <Description>""</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk, www.autodesk.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

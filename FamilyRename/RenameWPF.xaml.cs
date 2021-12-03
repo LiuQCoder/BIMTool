@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace FamilyRename
 {
     /// <summary>
-    /// RenameWindow.xaml 的交互逻辑
+    /// RenameWPF.xaml 的交互逻辑
     /// </summary>
-    public partial class RenameWindow : Window
+    public partial class RenameWPF : Window
     {
         
         //注册外部事件
         RenameDemo reCommand = null;
         ExternalEvent reEvent = null;
-        public RenameWindow()
+        public RenameWPF()
         {
             InitializeComponent();
 
@@ -47,6 +47,7 @@ namespace FamilyRename
             }
 
         }
+        //捕捉ESC退出WPF
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

@@ -23,7 +23,6 @@ namespace FamilyRename
             double length = UnitUtils.Convert(3, DisplayUnitType.DUT_METERS, DisplayUnitType.DUT_DECIMAL_FEET);
             double hight = UnitUtils.Convert(3, DisplayUnitType.DUT_METERS, DisplayUnitType.DUT_DECIMAL_FEET);
 
-           
 
             try
             {
@@ -59,20 +58,13 @@ namespace FamilyRename
                 #endregion
                 sectionTran.Commit();
 
-
-
                 #region 将范围框转换成模型坐标系
 
                 var transForm = GetpipeTransform(mepPipe,mepPoint1,mepPoint2);
                 sectionBox.Transform = transForm;
 
-
-
-
                 #endregion
                
-
-
                 #region 获取viewfamilyID
                 //获取剖面的viewfamilyID
 

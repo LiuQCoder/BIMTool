@@ -24,7 +24,7 @@ namespace FamilyRename
             application.CreateRibbonTab(tabName);
             var panel = application.CreateRibbonPanel(tabName, "小工具");
             //获取程序路径
-            var assemblyType = new fnMain().GetType();
+            var assemblyType = new RenameMain().GetType();
             var location = assemblyType.Assembly.Location;
             //获取类名全称
             var fullName = assemblyType.FullName;
@@ -36,7 +36,7 @@ namespace FamilyRename
             //将图标添加到panel
             var pushButton = panel.AddItem(pushButtonData) as PushButton;
 
-            //添加分隔符
+            //2.添加分隔符
             panel.AddSeparator();
 
             var createViewsType = new CreateViewSection().GetType();
@@ -52,7 +52,7 @@ namespace FamilyRename
             var cvspushButton = panel.AddItem(cvsButtonData) as PushButton;
 
 
-            //添加分隔符
+            //3.添加分隔符
             panel.AddSeparator();
 
 
@@ -68,22 +68,34 @@ namespace FamilyRename
             //将图标添加到panel
             var cfvpushButton = panel.AddItem(CFVButtonData) as PushButton;
 
-            //添加分隔符
+            //4.添加分隔符
             panel.AddSeparator();
             var CadVisiableType = new CadVisiableMain().GetType();
             var CadVisiableLocation = CadVisiableType.Assembly.Location;
             //获取类全名
             var CadvisiableFName = CadVisiableType.FullName;
             //创建按钮
-            var CadVbButtionData = new PushButtonData("CadVisiable", "CAD图层控制", CadVisiableLocation, CadvisiableFName);
+            var CadVbButtonData = new PushButtonData("CadVisiable", "CAD图层控制", CadVisiableLocation, CadvisiableFName);
             //创建图标
             var CadVbImagePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\icon\图层.png";
-            CadVbButtionData.LargeImage = new BitmapImage(new Uri(CadVbImagePath));
+            CadVbButtonData.LargeImage = new BitmapImage(new Uri(CadVbImagePath));
             //将图标添加到Panel
-            var CadVbpushButton = panel.AddItem(CadVbButtionData) as PushButton;
+            var CadVbpushButton = panel.AddItem(CadVbButtonData) as PushButton;
 
+            //5.添加分隔符
+            panel.AddSeparator();
 
-
+            var NewFittingType = new NewFittingMain().GetType();
+            var NewFittingLocation = NewFittingType.Assembly.Location;
+            //获取类全名
+            var NewFittingFName = NewFittingType.FullName;
+            //创建按钮
+            var NFButtonData = new PushButtonData("NewFitting", "批量配件", NewFittingLocation, NewFittingFName);
+            //创建图标
+            var NFbImagePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\icon\创建配件.png";
+            NFButtonData.LargeImage = new BitmapImage(new Uri(NFbImagePath));
+            //将图标添加到Panel
+            var NFButton = panel.AddItem(NFButtonData) as PushButton;
 
             return Result.Succeeded;
         }
