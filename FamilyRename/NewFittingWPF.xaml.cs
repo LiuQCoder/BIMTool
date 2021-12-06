@@ -34,10 +34,7 @@ namespace FamilyRename
 
             newFittingCommand = new NewtFitting();
             newfittingEvent = ExternalEvent.Create(newFittingCommand);
-
-          
-
-             
+    
         }
 
         private void creatfit_Click(object sender, RoutedEventArgs e)
@@ -142,12 +139,15 @@ namespace FamilyRename
                 cablename.Text = "";
             }
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                this.Close();
 
-       
+        }
 
-       
 
-       
+
     }
     
 }
