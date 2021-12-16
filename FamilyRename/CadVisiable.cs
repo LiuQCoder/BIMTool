@@ -221,6 +221,14 @@ namespace FamilyRename
                 TaskDialog.Show("警告", "未选任何CAD图层对象\n请重新选择");
             }
 
+            //当前视图被设置了视图样板引发异常
+            catch (Autodesk.Revit.Exceptions.ArgumentException) 
+            {
+                ButtonIS = "on";
+                TaskDialog.Show("提示", "当前视图可能已设置视图样板或图元被锁定\n请更改视图样板或解锁后再试");
+            }
+
+
             //捕获其他异常
             catch (Exception e)
             {

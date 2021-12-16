@@ -25,7 +25,8 @@ namespace FamilyRename
         //注册外部事件
         NewtFitting newFittingCommand = null;
         ExternalEvent newfittingEvent = null;
-                
+
+
         public NewFittingWPF(List<string> CableFamilys)
         {
             InitializeComponent();
@@ -34,20 +35,25 @@ namespace FamilyRename
 
             newFittingCommand = new NewtFitting();
             newfittingEvent = ExternalEvent.Create(newFittingCommand);
-    
+
+
+            //注册KeyDown事件，捕获Esc来关闭WPF
+            this.KeyDown += Window_KeyDown;
+
+
         }
 
         private void creatfit_Click(object sender, RoutedEventArgs e)
         {
-            if (pipebool.IsChecked.ToString()=="True")
+
+            if (pipebool.IsChecked?.ToString() == "True" || pipebool.IsChecked == null)
             {
                 
-
-                if (pipeSourceName.Text == ""  )
+                if (pipeSourceName.Text == "" || pipeSourceName.Text == "输入类型名称")
                 {
                     TaskDialog.Show("提示", "复制源名称为空!");
                 }
-                else if (pipename.Text == "" )
+                else if (pipename.Text == "" || pipename.Text == "输入管件名称")
                 {
                     TaskDialog.Show("提示", "新建管件名称为空!");
                 }
@@ -57,12 +63,12 @@ namespace FamilyRename
                     newFittingCommand.NewpipeFitting = pipename.Text;
                     newfittingEvent.Raise();
                 }
-               
+
             }
             else
             {
                
-                if (cablename.Text == "" )
+                if (cablename.Text == "" || cablename.Text == "输入配件名称")
                 {
                     TaskDialog.Show("提示", "新建配件名称为空!");
                 }
@@ -72,17 +78,18 @@ namespace FamilyRename
                     newFittingCommand.CableFamilySelect = cableTypeCB.Text;
                     newfittingEvent.Raise();
                 }
-                
+
             }
-      
+
+
 
         }
 
-       
+
         private void cableTypeCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
-           
+
+
         }
 
         private void pipebool_Click(object sender, RoutedEventArgs e)
@@ -95,7 +102,8 @@ namespace FamilyRename
             cablename.IsEnabled = false;
             pipeSourceName.IsEnabled = true;
             pipename.IsEnabled = true;
-            
+
+
         }
 
         private void cablebool_Click(object sender, RoutedEventArgs e)
@@ -110,6 +118,7 @@ namespace FamilyRename
             pipename.IsEnabled = false;
             cableTypeCB.IsEnabled = true;
             cablename.IsEnabled = true;
+
         }
 
         //激活TextBox时，将内容设置为空
@@ -118,7 +127,7 @@ namespace FamilyRename
             if (pipeSourceName.IsFocused && pipeSourceName.Text == "输入类型名称")
             {
                 pipeSourceName.Text = "";
-            }     
+            }
         }
 
 
@@ -129,7 +138,7 @@ namespace FamilyRename
             {
                 pipename.Text = "";
             }
-           
+
         }
         //激活TextBox时，将内容设置为空
         private void cablename_GotFocus(object sender, RoutedEventArgs e)
@@ -149,5 +158,5 @@ namespace FamilyRename
 
 
     }
-    
+
 }

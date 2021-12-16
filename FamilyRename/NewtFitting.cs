@@ -18,15 +18,17 @@ namespace FamilyRename
         public string SourceSymboolName { set; get; }
         public string NewpipeFitting { set; get; }
 
-        public bool PipeChecked { set; get; }
-            
-         
-        public void Execute(UIApplication app)
+        public bool PipeChecked { set; get; } = true;
+       
+
+
+    public void Execute(UIApplication app)
         {
             try
             {
                 if (PipeChecked)
                 {
+                    
                     //生成管件
                     var sourceSymboolName = SourceSymboolName;
                     var newpipeFitting = NewpipeFitting;
@@ -34,14 +36,14 @@ namespace FamilyRename
                 }
                 else
                 {
+                   
                     //生成桥架配件
                     var selectCabName = CableFamilySelect;
                     var cableNewName = CableNewName;
                     CreatCableFit(app, selectCabName, cableNewName);
+                    
                 }
             }
-
-
 
             catch (Autodesk.Revit.Exceptions.ArgumentException)
             {
@@ -50,7 +52,7 @@ namespace FamilyRename
             }
             catch (Exception e)
             {
-                TaskDialog.Show("异常", "Error:" + e.Message);
+                TaskDialog.Show("异常", "Error:" + e.Message.ToString());
 
             }
 
@@ -108,12 +110,21 @@ namespace FamilyRename
             }
             #endregion
 
-            #region 复制新建类型
-            var creatTransaction = new Transaction(doc);
-            creatTransaction.Start("复制新建类型");
-            CreetFitting(resultFamily, cableNewName, doc);
-            creatTransaction.Commit();
-            #endregion
+            if (resultFamily.Count == 0)
+            {
+                TaskDialog.Show("提示", "项目中不存在此类型桥架，请重新选择！");
+            }
+            else
+            {
+                #region 复制新建类型
+                var creatTransaction = new Transaction(doc);
+                creatTransaction.Start("复制新建桥架配件类型");
+                CreetFitting(resultFamily, cableNewName, doc);
+                creatTransaction.Commit();
+                #endregion
+            }
+
+
         }
 
         /// <summary>
@@ -146,7 +157,7 @@ namespace FamilyRename
             var fittingCollector = new FilteredElementCollector(doc);
             //获取管道配件类型
             var pipeCollector = fittingCollector.OfCategory(BuiltInCategory.OST_PipeFitting).OfClass(typeof(FamilySymbol));
-
+            var creatFitList = new List<string> { };
             var creatpipeTransaction = new Transaction(doc);
             creatpipeTransaction.Start("复制新建管件类型");
             foreach (var item in pipeCollector)
@@ -155,9 +166,14 @@ namespace FamilyRename
                 {
                     var itemSy = item as FamilySymbol;
                     itemSy.Duplicate(newpipeFitting);
-
+                    creatFitList.Add(item.Name.ToString());
                 }
             }
+            if (creatFitList.Count==0)
+            {
+                TaskDialog.Show("提示", "项目中不存在名称为" + sourceSymboolName+"的管件");
+            }
+           
             creatpipeTransaction.Commit();
         }
 
