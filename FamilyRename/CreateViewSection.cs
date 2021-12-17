@@ -39,6 +39,7 @@ namespace FamilyRename
                 XYZ mepPoint1 = mepCurve.Curve.Project(firstPoint).XYZPoint;
                 XYZ secPoint = selection.PickPoint("请选择第二个点");
                 XYZ mepPoint2 = mepCurve.Curve.Project(secPoint).XYZPoint;
+                mepPoint2 = new XYZ(mepPoint2.X, mepPoint2.Y, mepPoint1.Z);
 
 
                 //求选择两点的距离即剖面的深度
