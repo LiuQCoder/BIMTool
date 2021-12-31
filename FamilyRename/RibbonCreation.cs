@@ -28,6 +28,7 @@ namespace FamilyRename
             var location = assemblyType.Assembly.Location;
             //获取类名全称
             var fullName = assemblyType.FullName;
+
             //创建按钮 修改族名称
             var pushButtonData = new PushButtonData("rename", "修改族名称",location,fullName);
             //创建图标
@@ -36,7 +37,7 @@ namespace FamilyRename
             //将图标添加到panel
             var pushButton = panel.AddItem(pushButtonData) as PushButton;
 
-            //2.添加分隔符
+            //2.添加分隔符 创建剖面
             panel.AddSeparator();
 
             var createViewsType = new CreateViewSection().GetType();
@@ -50,11 +51,11 @@ namespace FamilyRename
             cvsButtonData.LargeImage = new BitmapImage(new Uri(cvsimagePath));
             //将图标添加到panel
             var cvspushButton = panel.AddItem(cvsButtonData) as PushButton;
+           
 
 
-            //3.添加分隔符
+            //3.添加分隔符 VVplus
             panel.AddSeparator();
-
 
             var CFviewType = new CFVMain().GetType();
             var CFVLocation = CFviewType.Assembly.Location;
@@ -68,7 +69,7 @@ namespace FamilyRename
             //将图标添加到panel
             var cfvpushButton = panel.AddItem(CFVButtonData) as PushButton;
 
-            //4.添加分隔符
+            //4.添加分隔符 CAD图层控制
             panel.AddSeparator();
             var CadVisiableType = new CadVisiableMain().GetType();
             var CadVisiableLocation = CadVisiableType.Assembly.Location;
@@ -82,7 +83,7 @@ namespace FamilyRename
             //将图标添加到Panel
             var CadVbpushButton = panel.AddItem(CadVbButtonData) as PushButton;
 
-            //5.添加分隔符
+            //5.添加分隔符 批量配件
             panel.AddSeparator();
 
             var NewFittingType = new NewFittingMain().GetType();
@@ -96,6 +97,24 @@ namespace FamilyRename
             NFButtonData.LargeImage = new BitmapImage(new Uri(NFbImagePath));
             //将图标添加到Panel
             var NFButton = panel.AddItem(NFButtonData) as PushButton;
+
+            //6.添加分隔符 剖面框旋转
+            panel.AddSeparator();
+
+            var ViewTranType = new ViewsectionTran().GetType();
+            var VTLocation = ViewTranType.Assembly.Location;
+            //获取类全名
+            var VTFName = ViewTranType.FullName;
+            //创建按钮
+            var VTButtonData = new PushButtonData("ViewTran", "剖面框旋转", VTLocation, VTFName);
+            //创建图标
+            var VTbImagePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\icon\3d.png";
+            VTButtonData.LargeImage = new BitmapImage(new Uri(VTbImagePath));
+            //将图标添加到Panel
+            var VTButton = panel.AddItem(VTButtonData) as PushButton;
+            //设置可用性
+            VTButton.AvailabilityClassName = "FamilyRename.VTButtonEnable";
+
 
             return Result.Succeeded;
         }
